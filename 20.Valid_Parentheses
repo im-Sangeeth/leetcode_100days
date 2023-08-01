@@ -1,0 +1,25 @@
+class Solution {
+    public boolean isValid(String s) {
+        char arr[]=s.toCharArray();
+        if(arr.length%2!=0)
+        return false;
+        Stack<Character> s1=new Stack<Character>();
+        for(char ch:arr){
+            if(ch=='('||ch=='{'||ch=='['){
+                s1.push(ch);
+            }else if(ch==')'&&!s1.isEmpty()&&s1.peek()=='('){
+                s1.pop();
+            }
+            else if(ch=='}'&&!s1.isEmpty()&&s1.peek()=='{'){
+                s1.pop();
+            }
+            else if(ch==']'&&!s1.isEmpty()&&s1.peek()=='['){
+                s1.pop();
+            }
+            else{
+                return false;
+            }
+        }
+        return s1.isEmpty();
+    }
+}
