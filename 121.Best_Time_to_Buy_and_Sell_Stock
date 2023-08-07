@@ -1,0 +1,11 @@
+class Solution {
+    public int maxProfit(int[] prices) {
+        int let=Integer.MAX_VALUE;
+        int temp=0;
+        for(int i=0;i<prices.length;i++){
+            if(prices[i]<let) let=prices[i];
+            temp=Math.max(temp,prices[i]-let);
+        }
+        return temp;
+    }
+}
