@@ -1,0 +1,10 @@
+class Solution {
+    public int[] sortedSquares(int[] nums) {
+        int i = 0, j = nums.length;
+        int[] sorted = new int[j--];
+        int count = j;
+        while(i <= j)
+            sorted[count--] = (nums[i]*nums[i] > nums[j]*nums[j]) ? nums[i]*nums[i++] : nums[j]*nums[j--];
+        return sorted;
+    }
+}
